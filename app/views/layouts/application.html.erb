@@ -8,15 +8,30 @@
 
 </head>
 <body>
-	<div id="fb-root"></div>
-	<script>(function(d, s, id) {
-	  var js, fjs = d.getElementsByTagName(s)[0];
-	  if (d.getElementById(id)) return;
-	  js = d.createElement(s); js.id = id;
-	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=461550273890419";
-	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));</script>
-	<div class="fb-like" data-href="https://www.facebook.com/carmanfiat" data-send="true" data-width="450" data-show-faces="false"></div>
+<div id="fb-root"></div>
+<div class="fb-like" data-href="https://www.facebook.com/carmanfiat" data-send="true" width="450" data-show-faces="false" font=""></div>
+
+	<script type="text/javascript">
+	    window.fbAsyncInit = function() {
+	        FB.init({appId: '461550273890419', status: true, cookie: true, xfbml: true});
+	        FB.Canvas.setSize({ width: 520, height: 1500 });
+	        FB.Event.subscribe('edge.create',
+	            function(response) {
+	                alert('like!');
+	                // put redirect code here eg
+	                window.location = "http://giveawayapp.herokuapp.com/"; 
+	            }
+	        );
+	    };
+
+	    //Load the SDK asynchronously
+	    (function() {
+	        var e = document.createElement('script'); e.async = true;
+	            e.src = document.location.protocol +
+	              '//connect.facebook.net/en_US/all.js';
+	            document.getElementById('fb-root').appendChild(e);
+	    }());
+	</script>
 <div id="user_nav" class="pull-right">
   <% if current_user %>
     Signed in as <strong><%= current_user.name %></strong>!

@@ -1,12 +1,12 @@
 <section>
-  <%# if user_likes_page? -%>
+  <%- if user_likes_page? -%>
 	<h1>Please Enter Your Name &amp; Email Below:</h1>
 	<%= simple_form_for @contestant, :html => { class: 'form-vertical' } do |f| %>
 		<%= f.input :name %>
 		<%= f.input :email %>
 		<%= f.submit "Submit", class: "btn btn-primary" %>
 	<% end %>
-  <%# else -%>
-	<!--<h1>Click Like to Enter the Fiat Swag Giveaway</h1>-->
-  <%# end -%>
+  <%- else -%>
+	<h1>Click Like to Enter the Fiat Swag Giveaway</h1>
+  <%- end -%>
 </section>

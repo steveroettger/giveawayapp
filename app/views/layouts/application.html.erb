@@ -5,9 +5,23 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+<meta property="og:title" content="Carman Fiat" />
+<meta property="og:type" content="company" />
+<meta property="og:url" content="http://facebook.com/carmanfiat" />
+<meta property="og:image" content="" />
+<meta property="og:site_name" content="Carman Fiat " />
+<meta property="fb:admins" content="11307510" />
 </head>
 <body>
-<div id="fb-root"></div>
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=461550273890419";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	<div class="fb-like" data-href="https://www.facebook.com/carmanfiat" data-send="true" data-width="450" data-show-faces="false"></div>
 <div id="user_nav" class="pull-right">
   <% if current_user %>
     Signed in as <strong><%= current_user.name %></strong>!
@@ -17,15 +31,7 @@
   <% end %>
 </div>
 <%= yield %>
-<script src="http://connect.facebook.net/en_US/all.js"></script>
-<script>
-  FB.init({
-    appId  : '461550273890419',
-    status : true, // check login status
-    cookie : true, // enable cookies to allow the server to access the session
-    xfbml  : true, // parse XFBML
-  });
-</script>
+
 
 </body>
 </html>

@@ -1,27 +1,14 @@
-<% flash.each do |name, msg| %>
-    <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
-	  <a class="close" data-dismiss="alert">×</a><!--/.close-->
-	  <%= msg %>
-    </div><!--/.alert.alert-'name'--> 
- <% end %>
+<section id="main-container">
+<h1>Like the Carman Fiat Facebook Page<h1>
+<div class="fb-like" data-href="http://www.facebook.com/carmanfiat" data-send="true" data-width="450" data-show-faces="true" data-font="verdana"></div>
+
+<h1>Now Help Friends By Voting on Fiat Experience App</h1>
 <div id="user_nav">
   <% if current_user %>
     Signed in as <strong><%= current_user.name %></strong>!
-    <%= link_to "Sign out", signout_path, id: "sign_out" %>
+    <%= link_to "Sign out", signout_path, id: "sign_out", class: "btn btn-primary" %>
   <% else %>
-    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+    <%= link_to "Vote for Friends", "/auth/facebook", id: "sign_in", class: "btn btn-primary btn-large" %>
   <% end %>
-
-<section>
-  <%# if user_likes_page? -%>
-	<h1>Please Enter Your Name &amp; Email Below:</h1>
-	<%= simple_form_for @contestant, :html => { class: 'form-vertical' } do |f| %>
-		<%= f.input :name %>
-		<%= f.input :email %>
-		<%= f.submit "Submit", class: "btn btn-primary" %>
-	<% end %>
-	
-  <%# else -%>
-	<!--<h1>Click Like to Enter the Fiat Swag Giveaway</h1>-->
-  <%# end -%>
+</div>
 </section>

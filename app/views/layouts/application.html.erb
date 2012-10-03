@@ -5,6 +5,8 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <meta property="fb:app_id" content="[FB App ID]" />
+  <meta property="fb:admins" content="[FB UIDs of FB App Admins]" />
   <script>
   $(document).ready(function() {
   	if (window.location.hash == '#_=_')window.location.hash = '';
@@ -25,7 +27,20 @@
 	FB.Canvas.setAutoGrow();
   }
 </script>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=461550273890419";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 <section id="wrapper">
+	<% flash.each do |name, msg| %>
+	    <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+		  <a class="close" data-dismiss="alert">×</a><!--/.close-->
+		  <%= msg %>
+	    </div><!--/.alert.alert-'name'--> 
+	 <% end %>	
   <%= yield %>
 </section><!--/section#wrapper-->
 </div>

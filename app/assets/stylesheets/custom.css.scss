@@ -7,6 +7,22 @@ body {
 }
 
 @import "bootstrap-responsive";
+section#wrapper { 
+	margin: 0 auto;
+}
+
+section#main-container {
+	margin: 0 auto;
+	width: 810px;
+	height: 400px;
+	border: 1px solid black;
+	background: #ccc;
+	text-align: center;
+	
+	div.fb-like {
+		margin: 30px 0 30px 0;
+	}
+}
 
 div.alert {
 	margin-bottom: 0;

@@ -1,8 +1,6 @@
 class ContestantsController < ApplicationController
   def index
-    #@contestants = Contestant.find_with_reputation(:votes, :all, order: "votes desc")
     @contestants = Contestant.find(:all, :order => 'id')
-    @contestant = Contestant.find(1)
   end
   
   def new
@@ -12,7 +10,7 @@ class ContestantsController < ApplicationController
   def create
     @contestant = Contestant.new(params[:contestant])
     if @contestant.save
-      redirect_to contestants, notice: 'New contestant profile has been created.'
+      redirect_to contestant_path, notice: 'New contestant profile has been created.'
     else
       render 'new'
     end

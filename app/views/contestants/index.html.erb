@@ -1,4 +1,7 @@
 <% @contestants.each do |contestant| %>
-	<%= contestant.name %>
-	<%= contestant.video_url %>
+	<p><span class="strong"><%= contestant.name %></span></p>
+	<p><span class="strong"><%= contestant.video_url %></span></p>
+	<p><span class="strong"><%= contestant.votes %></span></p>
+	<p><span class="btn btn-primary"><%= link_to "vote", vote_contestant_path(contestant, value: 1), 
+						        method: "post" %></span></p>
 <% end %>

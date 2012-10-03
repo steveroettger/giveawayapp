@@ -12,7 +12,7 @@ class ContestantsController < ApplicationController
   def create
     @contestant = Contestant.new(params[:contestant])
     if @contestant.save
-      redirect_to @contestant, notice: 'New contestant profile has been created.'
+      redirect_to contestants, notice: 'New contestant profile has been created.'
     else
       render 'new'
     end

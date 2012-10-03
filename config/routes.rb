@@ -4,7 +4,7 @@ GiveawayApp::Application.routes.draw do
   resources :contestants do
     member { post :vote }
   end
-  match '/contestants/auth/:provider/callback', to: 'sessions#create'
+  match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'
 end

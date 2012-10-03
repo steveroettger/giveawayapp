@@ -25,6 +25,15 @@
 	FB.Canvas.setAutoGrow();
   }
 </script>
+<section id="wrapper">
+  <%= yield %>
+</section><!--/section#wrapper-->
+<% flash.each do |name, msg| %>
+    <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+	  <a class="close" data-dismiss="alert">×</a><!--/.close-->
+	  <%= msg %>
+    </div><!--/.alert.alert-'name'--> 
+ <% end %>
 <div id="user_nav">
   <% if current_user %>
     Signed in as <strong><%= current_user.name %></strong>!
@@ -33,14 +42,5 @@
     <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
   <% end %>
 </div>
-<section id="wrapper">
-	<% flash.each do |name, msg| %>
-	    <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
-		  <a class="close" data-dismiss="alert">×</a><!--/.close-->
-		  <%= msg %>
-	    </div><!--/.alert.alert-'name'--> 
-	 <% end %>
-	 <%= yield %>
-</section><!--/section#wrapper-->
 </body>
 </html>

@@ -8,6 +8,9 @@
   <script>
   $(document).ready(function() {
   	if (window.location.hash == '#_=_')window.location.hash = '';
+	$('#sign_in').click(function() {
+	   FB.login();
+	});
   });
   </script>
 </head>
@@ -22,7 +25,6 @@
 	  cookie : true, // enable cookies to allow the server to access the session
 	  xfbml  : true, // parse XFBML
     });
-	FB.login();
 	FB.Canvas.setAutoGrow();
   }
 </script>

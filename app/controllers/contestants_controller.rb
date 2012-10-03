@@ -1,4 +1,8 @@
 class ContestantsController < ApplicationController
+  def index
+    @contestants = Contestant.all
+  end
+  
   def new
     #create a new contestant by entering name + email
     @contestant = Contestant.new

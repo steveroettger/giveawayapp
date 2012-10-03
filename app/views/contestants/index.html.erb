@@ -2,6 +2,10 @@
 	<p><span class="strong"><%= contestant.name %></span></p>
 	<p><span class="strong"><%= contestant.video_url %></span></p>
 	<p><span class="strong"><%= contestant.votes %></span></p>
+	<% if current_user != nil %>
 	<p><span class="btn btn-primary"><%= link_to "vote", vote_contestant_path(contestant, value: 1), 
 						        method: "post" %></span></p>
+	<% else %>
+	<p>fix the sign in!</p>
+	<% end %>
 <% end %>

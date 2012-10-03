@@ -5,7 +5,17 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-
+  <script>
+  $(document).ready(function() {
+  	if (window.location.hash == '#_=_')window.location.hash = '';
+	
+	$('.fb-like').click(function(f){
+		alert('like!');
+        // put redirect code here eg
+        window.location = "http://giveaway/test";
+	});
+  });
+  </script>
 </head>
 <body>
 <div id="fb-root"></div>
@@ -35,6 +45,7 @@
           document.getElementById('fb-root').appendChild(e);
   }());
 </script>
+<div class="fb-like" data-href="https://www.facebook.com/sroettgerdev" data-send="false" width="450" data-show-faces="false" font=""></div>
 <div id="user_nav" class="pull-right">
   <% if current_user %>
     Signed in as <strong><%= current_user.name %></strong>!

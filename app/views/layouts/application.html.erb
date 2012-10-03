@@ -13,6 +13,7 @@
 </head>
 <body>
 <div id="fb-root"></div>
+<script type="text/javascript" src="//connect.facebook.net/en_US/all.js"></script> 
 <script>
   window.fbAsyncInit = function() {
     FB.init({
@@ -22,15 +23,7 @@
 	  xfbml  : true, // parse XFBML
     });
 	FB.Canvas.setAutoGrow();
-  };
-
-  //Load the SDK asynchronously
-  (function() {
-      var e = document.createElement('script'); e.async = true;
-          e.src = document.location.protocol +
-            '//connect.facebook.net/en_US/all.js';
-          document.getElementById('fb-root').appendChild(e);
-  }());
+  }
 </script>
 <div id="user_nav" class="pull-right">
   <% if current_user %>
@@ -40,8 +33,14 @@
     <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
   <% end %>
 </div>
-<%= yield %>
-
-
+<section id="wrapper">
+	<% flash.each do |name, msg| %>
+	    <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+		  <a class="close" data-dismiss="alert">×</a><!--/.close-->
+		  <%= msg %>
+	    </div><!--/.alert.alert-'name'--> 
+	 <% end %>
+	 <%= yield %>
+</section><!--/section#wrapper-->
 </body>
 </html>

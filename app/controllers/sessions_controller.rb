@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   def create
     user = User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user.id
-    redirect_to new_contestant_path, notice: 'You are signed in!'
+    redirect_to contestants_path, notice: 'You are signed in!'
   end
 
   def destroy

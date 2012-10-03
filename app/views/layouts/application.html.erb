@@ -8,12 +8,6 @@
   <script>
   $(document).ready(function() {
   	if (window.location.hash == '#_=_')window.location.hash = '';
-	
-	$('.fb-like').click(function(f){
-		alert('like!');
-        // put redirect code here eg
-        window.location = "http://giveaway/test";
-	});
   });
   </script>
 </head>
@@ -28,13 +22,6 @@
 	  xfbml  : true, // parse XFBML
     });
 	FB.Canvas.setAutoGrow();
-	FB.Event.subscribe('edge.create',
-        function(response) {
-            alert('like!');
-            // put redirect code here eg
-            window.location = "http://giveawayapp.herokuapp.com/"; 
-        }
-    );	
   };
 
   //Load the SDK asynchronously
@@ -45,7 +32,6 @@
           document.getElementById('fb-root').appendChild(e);
   }());
 </script>
-<div class="fb-like" data-href="https://www.facebook.com/sroettgerdev" data-send="false" width="450" data-show-faces="false" font=""></div>
 <div id="user_nav" class="pull-right">
   <% if current_user %>
     Signed in as <strong><%= current_user.name %></strong>!

@@ -18,7 +18,19 @@
   </script>
 </head>
 <body>
-
+<div id="fb-root"></div>
+<script type="text/javascript" src="//connect.facebook.net/en_US/all.js"></script> 
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+	  appId  : '461550273890419',
+	  status : true, // check login status 
+	  cookie : true, // enable cookies to allow the server to access the session
+	  xfbml  : true, // parse XFBML
+    });
+	FB.Canvas.setAutoGrow();
+  }
+</script>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;

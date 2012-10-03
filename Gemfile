@@ -8,6 +8,7 @@ gem 'rails', '3.2.6'
 gem "simple_form", "~> 2.0.2"
 gem "fbgraph", "~> 1.10.0"
 gem 'omniauth-facebook'
+gem 'rack-p3p'
 
 #Gems for databases:
 group :production do

@@ -1,4 +1,10 @@
 <section id="contestant-index">
+<% flash.each do |name, msg| %>
+	<div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+		<a class="close" data-dismiss="alert">×</a><!--/.close-->
+		<%= msg %>
+	</div><!--/.alert.alert-'name'--> 
+<% end %>
 <% @contestants.each do |contestant| %>
 	<p><span class="strong"><%= contestant.name %></span></p>
 	<p><span class="strong"><%= contestant.video_url %></span></p>
